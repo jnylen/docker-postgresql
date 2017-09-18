@@ -247,6 +247,11 @@ initialize_database() {
   set_postgresql_param "log_directory" "${PG_LOGDIR}"
   set_postgresql_param "log_filename" "postgresql-${PG_VERSION}-main.log"
 
+  # custom max connections etc
+  set_postgresql_param "max_connections" "300"
+  set_postgresql_param "shared_buffers" "2500MB"
+  set_postgresql_param "random_page_cost" "1"
+
   # trust connections from local network
   if [[ ${PG_TRUST_LOCALNET} == true ]]; then
     echo "Trusting connections from the local network..."
