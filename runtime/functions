@@ -127,6 +127,7 @@ configure_hot_standby() {
       set_postgresql_param "checkpoint_segments" "8"
       set_postgresql_param "wal_keep_segments" "32"
       set_postgresql_param "hot_standby" "on"
+      set_postgresql_param "hot_standby_feedback" "on"
       ;;
   esac
 }

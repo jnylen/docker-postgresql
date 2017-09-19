@@ -1,6 +1,6 @@
 PostgreSQL:
   restart: always
-  image: jnylen/postgresql:9.6-3
+  image: jnylen/postgresql:9.6-4
   ports:
     - "5432:5432"
   environment:
