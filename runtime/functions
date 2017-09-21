@@ -253,6 +253,11 @@ initialize_database() {
   set_postgresql_param "shared_buffers" "2500MB"
   set_postgresql_param "random_page_cost" "1"
 
+  # pg_stat_statements
+  set_postgresql_param "shared_preload_libraries" "pg_stat_statements"
+  set_postgresql_param "pg_stat_statements.max" "1000"
+  set_postgresql_param "pg_stat_statements.track" "all"
+
   # trust connections from local network
   if [[ ${PG_TRUST_LOCALNET} == true ]]; then
     echo "Trusting connections from the local network..."
